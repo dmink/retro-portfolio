@@ -12,8 +12,8 @@
 
 	<body class="page-contact">
 
-        <?php include 'blocks/top-header.php' ?>
+        <?php include 'templates/global/header.php' ?>
 
-        <?php include 'blocks/contact-info.php' ?>
+        <?php include 'templates/sections/contact-info.php' ?>
 
-<?php include 'blocks/global-footer.php' ?>
+<?php include 'templates/global/footer.php' ?>

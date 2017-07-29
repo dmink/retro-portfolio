@@ -8,7 +8,8 @@ const gulp = require('gulp'),
 var scssFold = 'source/scss/*.scss';
 
 // Source
-var blocksSrc = 'source/blocks/**',
+var globalPartsSrc = 'source/templates/global/**',
+    sectionsSrc = 'source/templates/sections/**',
     pagesSrc = 'source/*.php',
     styleSrc = 'source/scss/style.scss',
     singleSrc = 'source/single/**/*.*',
@@ -17,7 +18,8 @@ var blocksSrc = 'source/blocks/**',
     imgSrc = 'source/img/**';
 
 // Build
-var blocksDest = 'build/blocks',
+var globalPartsDest = 'build/templates/global',
+    sectionsDest = 'build/templates/sections',
     pagesDest = 'build',
     styleDest = 'build/css',
     singleDest = 'build',
@@ -25,10 +27,16 @@ var blocksDest = 'build/blocks',
     fontsDest = 'build/fonts',
     imgDest = 'build/img';
 
-// Blocks
-gulp.task('blocks', function () {
-    gulp.src(blocksSrc)
-        .pipe(gulp.dest(blocksDest));
+// Sections
+gulp.task('sections', function () {
+    gulp.src(sectionsSrc)
+        .pipe(gulp.dest(sectionsDest));
+});
+
+// Global parts
+gulp.task('global-parts', function () {
+    gulp.src(globalPartsSrc)
+        .pipe(gulp.dest(globalPartsDest));
 });
 
 // Pages
@@ -72,7 +80,7 @@ gulp.task('img', function() {
 // Watcher
 gulp.task('watch', function() {
     gulp.watch(scssFold, ['styles']);
-    gulp.watch(blocksSrc, ['blocks']);
+    gulp.watch(sectionsSrc, ['sections']);
     gulp.watch(pagesSrc, ['pages']);
     gulp.watch(singleSrc, ['single']);
     gulp.watch(jsSrc, ['js']);
@@ -82,4 +90,4 @@ gulp.task('watch', function() {
 
 // Default (gulp) task
 gulp.task('default', ['js', 'img', 'fonts',
-    'styles', 'single', 'blocks', 'pages', 'watch']);
+    'styles', 'single', 'sections', 'global-parts', 'pages', 'watch']);
