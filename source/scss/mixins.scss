@@ -1,0 +1,67 @@
+// CSS reset
+
+@mixin indent-zero {
+	padding: 0;
+	margin: 0;
+}
+
+// Containers
+
+@mixin wrapper-container {
+	width: 100%;
+	max-width: $wrapper-container;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+// Dashed line
+
+@mixin section-dashed($line-top: '', $line-bottom: '', $top: 11px, $bottom: 11px) {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		content: $line-top;
+		top: $top;
+		left: 0;
+		height: 0;
+		width: 100%;
+		border-top: 1px dashed rgba(0, 0, 0, .4);
+		border-bottom: 1px dashed rgba(255, 255, 255, .4);
+	}
+
+	&::after {
+		position: absolute;
+		content: $line-bottom;
+		bottom: $bottom;
+		left: 0;
+		height: 0;
+		width: 100%;
+		border-top: 1px dashed rgba(0, 0, 0, .4);
+		border-bottom: 1px dashed rgba(255, 255, 255, .4);
+	}
+}
+
+// Inline block - align middle
+
+@mixin ib-align-middle {
+
+	&::after {
+		display: inline-block;
+		content: '';
+		width: 0;
+		height: 100%;
+		vertical-align: middle;
+	}
+}
+
+// Utilities
+
+@mixin clearfix {
+
+	&::after {
+		display: block;
+		content: "";
+		clear: both;
+	}
+}
