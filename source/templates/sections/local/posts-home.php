@@ -5,13 +5,13 @@
     <div class="post-preview">
 
         <div class="post-preview__thumb">
-            <a class="post-preview__thumb-link" href="/learning-english"><img class="post-preview__thumb-img" src="img/content/post-thumb-01.jpg" alt="" title=""></a>
+            <a class="post-preview__thumb-link" href="/build/learning-english.php"><img class="post-preview__thumb-img" src="img/content/post-thumb-01.jpg" alt="" title=""></a>
         </div>
 
         <div class="post-preview__info">
             <div class="post-preview__head">
                 <h3 class="post-preview__title">
-                    <a class="post-preview__title-link" href="/learning-english">The Magic Wheal</a>
+                    <a class="post-preview__title-link" href="/build/learning-english.php">The Magic Wheal</a>
                 </h3>
                 <div class="post-preview__detail">
                     <div class="post-preview__detail-meta">
@@ -46,13 +46,13 @@
     <div class="post-preview">
 
         <div class="post-preview__thumb">
-            <a class="post-preview__thumb-link" href="/learning-english"><img class="post-preview__thumb-img" src="img/content/post-thumb-02.jpg" alt="" title=""></a>
+            <a class="post-preview__thumb-link" href="/build/learning-english.php"><img class="post-preview__thumb-img" src="img/content/post-thumb-02.jpg" alt="" title=""></a>
         </div>
 
         <div class="post-preview__info">
             <div class="post-preview__head">
                 <h3 class="post-preview__title">
-                    <a class="post-preview__title-link" href="/learning-english">The Magic Wheal</a>
+                    <a class="post-preview__title-link" href="/build/learning-english.php">The Magic Wheal</a>
                 </h3>
                 <div class="post-preview__detail">
                     <div class="post-preview__detail-meta">
@@ -87,13 +87,13 @@
     <div class="post-preview">
 
         <div class="post-preview__thumb">
-            <a class="post-preview__thumb-link" href="/learning-english"><img class="post-preview__thumb-img" src="img/content/post-thumb-03.jpg" alt="" title=""></a>
+            <a class="post-preview__thumb-link" href="/build/learning-english.php"><img class="post-preview__thumb-img" src="img/content/post-thumb-03.jpg" alt="" title=""></a>
         </div>
 
         <div class="post-preview__info">
             <div class="post-preview__head">
                 <h3 class="post-preview__title">
-                    <a class="post-preview__title-link" href="/learning-english">Learning English</a>
+                    <a class="post-preview__title-link" href="/build/learning-english.php">Learning English</a>
                 </h3>
                 <div class="post-preview__detail">
                     <div class="post-preview__detail-meta">

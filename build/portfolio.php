@@ -12,10 +12,10 @@
 
 	<body class="page-portfolio">
 
-        <?php include 'templates/global/header.php' ?>
+        <?php include 'templates/sections/global/header.php'; ?>
 
-        <?php include 'templates/sections/portfolio-archive.php' ?>
+        <?php include 'templates/sections/local/portfolio-archive.php'; ?>
 
-        <?php include 'templates/sections/contact-info.php' ?>
+        <?php include 'templates/sections/local/contact-info.php'; ?>
 
-<?php include 'templates/global/footer.php' ?>
+<?php include 'templates/sections/global/footer.php'; ?>

@@ -12,7 +12,7 @@
 
 	<body class="single-post">
 
-		//= ../blocks/top-header.html
+		<?php include 'templates/sections/global/header.php'; ?>
 
 		<!-- BEGIN .post-content -->
 		<article class="post-content">
@@ -176,6 +176,6 @@
 		</article>
 		<!-- END .post-content -->
 
-		//= ../blocks/contact-info.html
+		<?php include 'templates/sections/local/contact-info.php'; ?>
 
-//= ../blocks/global-footer.html
+<?php include 'templates/sections/global/footer.php'; ?>

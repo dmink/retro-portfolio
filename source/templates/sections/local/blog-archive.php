@@ -9,7 +9,7 @@
             <div class="section-head__subtitle">News from my activity</div>
         </div>
 
-        <?php include 'posts-archive.php' ?>
+        <?php include 'templates/sections/local/posts-archive.php' ?>
 
     </div>
     <!-- END .company-blog__container -->

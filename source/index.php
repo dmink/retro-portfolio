@@ -12,16 +12,16 @@
 
 	<body class="page-home">
 
-        <?php include 'templates/global/header.php' ?>
+        <?php include 'templates/sections/global/header.php'; ?>
 
-        <?php include 'templates/sections/promo-header.php' ?>
+        <?php include 'templates/sections/local/promo-header.php'; ?>
 
-        <?php include 'templates/sections/company-skills.php' ?>
+        <?php include 'templates/sections/local/company-skills.php'; ?>
 
-        <?php include 'templates/sections/portfolio-home.php' ?>
+        <?php include 'templates/sections/local/portfolio-home.php'; ?>
 
-        <?php include 'templates/sections/blog-home.php' ?>
+        <?php include 'templates/sections/local/blog-home.php'; ?>
 
-        <?php include 'templates/sections/contact-info.php' ?>
+        <?php include 'templates/sections/local/contact-info.php'; ?>
 
-<?php include 'templates/global/footer.php' ?>
+<?php include 'templates/sections/global/footer.php'; ?>

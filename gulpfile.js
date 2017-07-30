@@ -8,35 +8,43 @@ const gulp = require('gulp'),
 var scssFold = 'source/scss/*.scss';
 
 // Source
-var globalPartsSrc = 'source/templates/global/**',
-    sectionsSrc = 'source/templates/sections/**',
-    pagesSrc = 'source/*.php',
+var sectionsGlobalSrc = 'source/templates/sections/global/**',
+    sectionsLocalSrc = 'source/templates/sections/local/**',
+    pagesSrc = 'source/templates/pages/*.php',
+    indexSrc = 'source/index.php',
     styleSrc = 'source/scss/style.scss',
-    singleSrc = 'source/single/**/*.*',
+    postsSrc = 'source/templates/posts/*.*',
     jsSrc = 'source/js/*.*',
     fontsSrc = 'source/fonts/**',
     imgSrc = 'source/img/**';
 
 // Build
-var globalPartsDest = 'build/templates/global',
-    sectionsDest = 'build/templates/sections',
+var sectionsGlobalDest = 'build/templates/sections/global',
+    sectionsLocalDest = 'build/templates/sections/local',
     pagesDest = 'build',
+    indexDest = 'build',
     styleDest = 'build/css',
-    singleDest = 'build',
+    postsDest = 'build',
     jsDest = 'build/js',
     fontsDest = 'build/fonts',
     imgDest = 'build/img';
 
 // Sections
-gulp.task('sections', function () {
-    gulp.src(sectionsSrc)
-        .pipe(gulp.dest(sectionsDest));
+gulp.task('sections-local', function () {
+    gulp.src(sectionsLocalSrc)
+        .pipe(gulp.dest(sectionsLocalDest));
 });
 
-// Global parts
-gulp.task('global-parts', function () {
-    gulp.src(globalPartsSrc)
-        .pipe(gulp.dest(globalPartsDest));
+// Sections global
+gulp.task('sections-global', function () {
+    gulp.src(sectionsGlobalSrc)
+        .pipe(gulp.dest(sectionsGlobalDest));
+});
+
+// Index
+gulp.task('index', function () {
+    gulp.src(indexSrc)
+        .pipe(gulp.dest(indexDest));
 });
 
 // Pages
@@ -45,10 +53,10 @@ gulp.task('pages', function () {
         .pipe(gulp.dest(pagesDest));
 });
 
-// Single pages (posts, projects etc)
-gulp.task('single', function () {
-    gulp.src(singleSrc)
-        .pipe(gulp.dest(singleDest));
+// Posts
+gulp.task('posts', function () {
+    gulp.src(postsSrc)
+        .pipe(gulp.dest(postsDest));
 });
 
 // Styles
@@ -80,9 +88,10 @@ gulp.task('img', function() {
 // Watcher
 gulp.task('watch', function() {
     gulp.watch(scssFold, ['styles']);
-    gulp.watch(sectionsSrc, ['sections']);
+    gulp.watch(sectionsLocalSrc, ['sections-local', 'pages', 'index']);
+    gulp.watch(sectionsGlobalSrc, ['sections-global', 'pages', 'index']);
     gulp.watch(pagesSrc, ['pages']);
-    gulp.watch(singleSrc, ['single']);
+    gulp.watch(postsSrc, ['posts']);
     gulp.watch(jsSrc, ['js']);
     gulp.watch(imgSrc, ['img']);
     gulp.watch(fontsSrc, ['fonts']);
@@ -90,4 +99,4 @@ gulp.task('watch', function() {
 
 // Default (gulp) task
 gulp.task('default', ['js', 'img', 'fonts',
-    'styles', 'single', 'sections', 'global-parts', 'pages', 'watch']);
+    'styles', 'posts', 'sections-local', 'sections-global', 'pages', 'index', 'watch']);
