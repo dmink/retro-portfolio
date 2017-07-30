@@ -33,7 +33,7 @@
 			<div class="post-content__article js-content-article">
 
 				<p>
-					I'm learning English for my job and because it's interesting for my. Here I write and update periodically my list of useful sites. There're sites for speaking, listening, testing, watching videos, reading and doing practice exercises. I don't add all sites for learning English, I add only
+					I'm learning English for my job and because it's interesting for my. Here I write and update periodically my list of useful sites. There're sites for speaking, listening, testing, watching videos, reading and doing practice exercises.
 				</p>
 
 				<h3>My Top 5</h3>
