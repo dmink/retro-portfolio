@@ -157,6 +157,8 @@
 
                     if( fieldValue.length > 2 && fieldValue != '' && rv_name.test(fieldValue) ) {
                         $(this).addClass('form-feedback--correct');
+                        $(this).next('.error-box').text('Принято')
+                            .css('color','green');
                     } else {
                         $(this).removeClass('form-feedback--correct').addClass('form-feedback--error');
                     }
@@ -193,7 +195,7 @@
             if( $('.form-feedback--correct').length == 3 ) {
 
                 $.ajax({
-                    url: '../mail/action.php',
+                    url: '../feedback/action.php',
                     type: 'post',
                     data: $(this).serialize(),
 
