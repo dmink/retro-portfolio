@@ -141,7 +141,7 @@
     });
 
 // Form validation
-
+/*
     $(function() {
 
         $( 'input.form-feedback__name, input.form-feedback__email, textarea.form-feedback__message' )
@@ -157,10 +157,10 @@
 
                     if( fieldValue.length > 2 && fieldValue != '' && rv_name.test(fieldValue) ) {
                         $(this).addClass('form-feedback--correct');
-                        $(this).next('.error-box').text('Принято')
-                            .css('color','green');
+                        $(this).after('<div style="color: white;">Correct</div>');
                     } else {
                         $(this).removeClass('form-feedback--correct').addClass('form-feedback--error');
+                        $(this).after('<div style="color: white;">Incorrect</div>');
                     }
                     break;
 
@@ -214,4 +214,91 @@
 
         }); // end submit()
 
+    });*/
+
+$(document).ready(function(){
+
+    $( '.form-feedback__name, .form-feedback__email, .form-feedback__message' )
+        .blur( function() {
+
+        var fieldName = $(this).attr( 'name' );
+        var fieldValue = $(this).val();
+
+        switch(fieldName) {
+
+            case 'feedbackName':
+                var rv_name = /^([ \u00c0-\u01ffa-zA-ZёЁа-яА-Я0-9'\-])+$/;
+
+                if( fieldValue.length > 2 && fieldValue != '' && rv_name.test(fieldValue) ) {
+                    $(this).addClass( 'not_error' );
+                    $(this).next( '.form-feedback__field-notice' ).text( 'Correct' )
+                        .css( 'color', 'white' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'},400 );
+                } else {
+                    $(this).removeClass( 'not_error' ).addClass( 'error' );
+                    $(this).next( '.form-feedback__field-notice' ).html( 'What is your name?' )
+                        .css( 'color', 'red' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'}, 400 );
+                } break;
+
+            case 'feedbackEmail':
+                var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+                if( fieldValue != '' && rv_email.test(fieldValue) ) {
+                    $(this).addClass( 'not_error' );
+                    $(this).next( '.form-feedback__field-notice' ).text( 'Correct' )
+                        .css( 'color', 'white' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'},400 );
+                } else {
+                    $(this).removeClass( 'not_error' ).addClass( 'error' );
+                    $(this).next( '.form-feedback__field-notice' ).html( 'Enter your email, please.' )
+                        .css( 'color', 'red' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'}, 400 );
+                } break;
+
+            case 'feedbackMessage':
+                if( fieldValue != '' ) {
+                    $(this).addClass( 'not_error' );
+                    $(this).next( '.form-feedback__field-notice' ).text( 'Correct' )
+                        .css( 'color', 'white' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'},400 );
+                } else {
+                    $(this).removeClass( 'not_error' ).addClass( 'error' );
+                    $(this).next( '.form-feedback__field-notice' ).html( 'Enter at least 1 character, please.' )
+                        .css( 'color', 'red' )
+                        .animate( {'paddingLeft': '10px'}, 400 )
+                        .animate( {'paddingLeft': '5px'}, 400 );
+                } break;
+            }
+        });
+
+    $(' .form-feedback' ).submit( function(e) {
+
+        e.preventDefault();
+
+        if( $('.not_error').length == 3 ) {
+
+            $.ajax({
+                url: 'feedback/action.php',
+                type: 'post',
+                data: $(this).serialize(),
+
+                beforeSend: function(xhr, textStatus){
+                    $( '.form-feedback :input' ).attr( 'disabled', 'disabled' );
+                },
+
+                success: function(response){
+                    $( '.form-feedback__btn' )
+                        .after( "<div class='form-feedback__thanks-notice'>Your message has been sent successfully. Thank you. I\'ll answer you soon</div>" );
+                }
+            });
+        } else {
+            return false;
+        }
+
     });
+});
